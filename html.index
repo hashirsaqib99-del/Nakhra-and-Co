@@ -237,13 +237,13 @@
             
             <div class="card">
                 <!-- REPLACE TEXT BELOW WITH: <img src="IMAGE_URL" class="card-img" alt="Product"> -->
-                <div class="card-img-placeholder">[ ADD IMAGE HERE ]</div>
+                <div class="card-img-placeholder">[ https://i.postimg.cc/0QdL1MqL/IMG-20260818-WA0041.jpg]</div>
                 <div class="card-body">
                     <div>
                         <div class="card-title">Luxury Bed Sheet Set</div>
-                        <p class="card-desc">Description to be added...</p>
+                        <p class="card-desc">Sapphire king size bed sheet cotton...</p>
                     </div>
-                    <div class="card-price">Price: To be added</div>
+                    <div class="card-price">Price: 2999</div>
                     <a href="https://wa.me/923142678280?text=Hi!%20I%20want%20to%20order%20the%20Luxury%20Bed%20Sheet%20Set." class="btn-order" target="_blank">💬 Order on WhatsApp</a>
                 </div>
             </div>
