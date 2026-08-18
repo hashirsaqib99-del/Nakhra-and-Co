@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>𝐍𝐚𝐤𝐡𝐫𝐚 𝐚𝐧𝐝 𝐂𝐨. | Home, Makeup & Women's Fashion</title>
+    
+    <style>
+        /* COLOR PALETTE & GLOBAL STYLES */
+        :root {
+            --matcha: #838F58;
+            --matcha-dark: #626C40;
+            --strawberry: #F9D1D9;
+            --strawberry-light: #FFF0F3;
+            --text-dark: #2C301E;
+            --white: #FFFFFF;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Playfair Display', Georgia, serif; }
+        body { background-color: var(--strawberry-light); color: var(--text-dark); line-height: 1.6; }
+
+        /* HEADER & NAVIGATION */
+        header {
+            background-color: var(--white);
+            border-bottom: 3px solid var(--matcha);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            padding: 15px 20px;
+        }
+
+        .nav-container {
+            max-width: 1100px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        /* BRAND NAME IN MATHEMATICAL BOLD SERIF */
+        .brand-logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: var(--matcha-dark);
+            text-decoration: none;
+            letter-spacing: 0.5px;
+        }
+
+        /* HAMBURGER MENU (3 LINES) */
+        .hamburger {
+            cursor: pointer;
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+        }
+
+        .hamburger div {
+            width: 26px;
+            height: 3px;
+            background-color: var(--matcha);
+            border-radius: 2px;
+        }
+
+        /* DROPDOWN MENU */
+        .nav-links {
+            display: none;
+            flex-direction: column;
+            background-color: var(--white);
+            position: absolute;
+            top: 100%;
+            left: 0;
+            width: 100%;
+            text-align: center;
+            border-bottom: 2px solid var(--strawberry);
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+        }
+
+        .nav-links a {
+            padding: 12px;
+            text-decoration: none;
+            color: var(--text-dark);
+            font-weight: 600;
+            border-bottom: 1px solid var(--strawberry-light);
+        }
+
+        .nav-links.active { display: flex; }
+
+        /* HERO BANNER */
+        .hero {
+            background-color: var(--strawberry);
+            text-align: center;
+            padding: 50px 20px;
+            border-bottom: 1px solid rgba(131, 143, 88, 0.2);
+        }
+
+        .hero h1 { font-size: 2.4rem; color: var(--matcha-dark); margin-bottom: 10px; }
+        .hero p { font-size: 1.1rem; font-style: italic; color: #555; }
+
+        /* CATEGORY SECTIONS & GRID */
+        .container { max-width: 1100px; margin: 40px auto; padding: 0 20px; }
+
+        .category-title {
+            color: var(--matcha-dark);
+            font-size: 2rem;
+            text-align: center;
+            margin: 50px 0 25px 0;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            position: relative;
+        }
+
+        .category-title::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 3px;
+            background-color: var(--strawberry);
+            margin: 8px auto 0 auto;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 25px;
+        }
+
+        /* PRODUCT CARDS */
+        .card {
+            background-color: var(--white);
+            border-radius: 12px;
+            overflow: hidden;
+            border: 1px solid var(--strawberry);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.03);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .card-img-placeholder {
+            width: 100%;
+            height: 260px;
+            background-color: var(--strawberry-light);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--matcha);
+            font-weight: bold;
+            text-align: center;
+            border-bottom: 1px solid var(--strawberry);
+        }
+
+        .card-img {
+            width: 100%;
+            height: 260px;
+            object-fit: cover;
+        }
+
+        .card-body {
+            padding: 18px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            flex-grow: 1;
+        }
+
+        .card-title { font-size: 1.2rem; font-weight: bold; color: var(--text-dark); }
+        .card-desc { font-size: 0.9rem; color: #666; margin: 8px 0; font-family: sans-serif; }
+        .card-price { font-size: 1.2rem; font-weight: bold; color: var(--matcha-dark); margin-bottom: 12px; }
+
+        .btn-order {
+            background-color: var(--matcha);
+            color: var(--white);
+            text-decoration: none;
+            padding: 10px;
+            text-align: center;
+            border-radius: 25px;
+            font-weight: bold;
+            font-family: sans-serif;
+            font-size: 0.9rem;
+            transition: 0.3s;
+        }
+
+        /* FOOTER & INSTAGRAM SECTION */
+        footer {
+            background-color: var(--white);
+            border-top: 2px solid var(--strawberry);
+            text-align: center;
+            padding: 35px 20px;
+            margin-top: 60px;
+        }
+
+        .social-link {
+            display: inline-block;
+            background-color: var(--strawberry);
+            color: var(--text-dark);
+            padding: 10px 20px;
+            border-radius: 20px;
+            text-decoration: none;
+            font-weight: bold;
+            margin-top: 10px;
+            font-family: sans-serif;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- HEADER WITH HAMBURGER MENU -->
+    <header>
+        <div class="nav-container">
+            <a href="#" class="brand-logo">𝐍𝐚𝐤𝐡𝐫𝐚 𝐚𝐧𝐝 𝐂𝐨.</a>
+            
+            <div class="hamburger" onclick="toggleMenu()">
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+        </div>
+
+        <nav class="nav-links" id="mobileMenu">
+            <a href="#home-section" onclick="toggleMenu()">🏠 Home & Bedding</a>
+            <a href="#makeup-section" onclick="toggleMenu()">💄 Makeup</a>
+            <a href="#clothing-section" onclick="toggleMenu()">👗 Women's Clothes</a>
+            <a href="https://instagram.com/nakhraandco.pk" target="_blank">📸 Instagram</a>
+        </nav>
+    </header>
+
+    <!-- HERO SECTION -->
+    <section class="hero">
+        <h1>𝐍𝐚𝐤𝐡𝐫𝐚 𝐚𝐧𝐝 𝐂𝐨.</h1>
+        <p>Luxury Home Essentials, Glamorous Makeup & Elegant Women's Apparel</p>
+    </section>
+
+    <div class="container">
+
+        <!-- ================= CATEGORY 1: HOME ================= -->
+        <h2 class="category-title" id="home-section">🏠 Home & Bedding</h2>
+        <div class="grid">
+            
+            <div class="card">
+                <!-- REPLACE TEXT BELOW WITH: <img src="IMAGE_URL" class="card-img" alt="Product"> -->
+                <div class="card-img-placeholder">[ ADD IMAGE HERE ]</div>
+                <div class="card-body">
+                    <div>
+                        <div class="card-title">Luxury Bed Sheet Set</div>
+                        <p class="card-desc">Description to be added...</p>
+                    </div>
+                    <div class="card-price">Price: To be added</div>
+                    <a href="https://wa.me/923142678280?text=Hi!%20I%20want%20to%20order%20the%20Luxury%20Bed%20Sheet%20Set." class="btn-order" target="_blank">💬 Order on WhatsApp</a>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-img-placeholder">[ ADD IMAGE HERE ]</div>
+                <div class="card-body">
+                    <div>
+                        <div class="card-title">Room Decor Item</div>
+                        <p class="card-desc">Description to be added...</p>
+                    </div>
+                    <div class="card-price">Price: To be added</div>
+                    <a href="https://wa.me/923142678280?text=Hi!%20I%20want%20to%20order%20the%20Room%20Decor%20Item." class="btn-order" target="_blank">💬 Order on WhatsApp</a>
+                </div>
+            </div>
+
+        </div>
+
+
+        <!-- ================= CATEGORY 2: MAKEUP ================= -->
+        <h2 class="category-title" id="makeup-section">💄 Makeup</h2>
+        <div class="grid">
+            
+            <div class="card">
+                <div class="card-img-placeholder">[ ADD IMAGE HERE ]</div>
+                <div class="card-body">
+                    <div>
+                        <div class="card-title">Lipstick / Gloss Palette</div>
+                        <p class="card-desc">Description to be added...</p>
+                    </div>
+                    <div class="card-price">Price: To be added</div>
+                    <a href="https://wa.me/923142678280?text=Hi!%20I%20want%20to%20order%20the%20Makeup%20Item." class="btn-order" target="_blank">💬 Order on WhatsApp</a>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-img-placeholder">[ ADD IMAGE HERE ]</div>
+                <div class="card-body">
+                    <div>
+                        <div class="card-title">Essential Beauty Product</div>
+                        <p class="card-desc">Description to be added...</p>
+                    </div>
+                    <div class="card-price">Price: To be added</div>
+                    <a href="https://wa.me/923142678280?text=Hi!%20I%20want%20to%20order%20the%20Beauty%20Product." class="btn-order" target="_blank">💬 Order on WhatsApp</a>
+                </div>
+            </div>
+
+        </div>
+
+
+        <!-- ================= CATEGORY 3: WOMEN'S CLOTHES ================= -->
+        <h2 class="category-title" id="clothing-section">👗 Women's Clothes</h2>
+        <div class="grid">
+            
+            <div class="card">
+                <div class="card-img-placeholder">[ ADD IMAGE HERE ]</div>
+                <div class="card-body">
+                    <div>
+                        <div class="card-title">Designer Lawn 3-Piece</div>
+                        <p class="card-desc">Description to be added...</p>
+                    </div>
+                    <div class="card-price">Price: To be added</div>
+                    <a href="https://wa.me/923142678280?text=Hi!%20I%20want%20to%20order%20the%20Lawn%20Suit." class="btn-order" target="_blank">💬 Order on WhatsApp</a>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-img-placeholder">[ ADD IMAGE HERE ]</div>
+                <div class="card-body">
+                    <div>
+                        <div class="card-title">Fancy Party Dress</div>
+                        <p class="card-desc">Description to be added...</p>
+                    </div>
+                    <div class="card-price">Price: To be added</div>
+                    <a href="https://wa.me/923142678280?text=Hi!%20I%20want%20to%20order%20the%20Fancy%20Dress." class="btn-order" target="_blank">💬 Order on WhatsApp</a>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- FOOTER SECTION -->
+    <footer>
+        <p><strong>𝐍𝐚𝐤𝐡𝐫𝐚 𝐚𝐧𝐝 𝐂𝐨.</strong></p>
+        <p style="margin-top: 5px; font-size: 0.9rem;">Follow us on Instagram for latest collections!</p>
+        <a href="https://instagram.com/nakhraandco.pk" class="social-link" target="_blank">📸 @nakhraandco.pk</a>
+        <p style="margin-top: 20px; font-size: 0.8rem; color: #777;">© 2026 Nakhra and Co. Website Designed by Web Solutions.</p>
+    </footer>
+
+    <!-- HAMBURGER MENU JAVASCRIPT -->
+    <script>
+        function toggleMenu() {
+            var menu = document.getElementById("mobileMenu");
+            menu.classList.toggle("active");
+        }
+    </script>
+
+</body>
+</html>
